@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="wrapper">
-        <div id="display"></div>
+        <div id="display">
+            <div class="display-input"></div>
+        </div>
         <div class="buttons-container">
             <div id="first-row" class="buttons-row">
-                <div id="del" class="buttons">del</div>
-                <div id="all-clear" class="buttons">AC</div>
-                <div id="add" class="operators buttons">+</div>
+                <div id="all-clear" class="delete buttons">AC</div>
+                <div id="clear" class="delete buttons">C</div>
+                <div id="percentage" class="operator buttons">%</div>
                 <div id="subtract" class="operator buttons">-</div>
             </div>
             
@@ -21,7 +26,7 @@
                 <div id="1" class="numbers buttons">1</div>
                 <div id="2" class="numbers buttons">2</div>
                 <div id="3" class="numbers buttons">3</div>
-                <div id="divide" class="operator buttons">/</div>
+                <div id="divide" class="operator buttons">÷</div>
             </div>
             
             <div id="third-row"  class="buttons-row">
@@ -35,15 +40,17 @@
                 <div id="7" class="numbers buttons">7</div>
                 <div id="8" class="numbers buttons">8</div>
                 <div id="9" class="numbers buttons">9</div>
-                <div id="percentage" class=" buttons">%</div>
+                <div id="add" class="operator buttons">+</div>
             </div>
             
             <div id="fifth-row"  class="buttons-row">
+                <div id="00"  class="numbers buttons">00</div>
                 <div id="0" class="numbers buttons">0</div>
-                <div id="point" class="buttons">.</div>
+                <div id="point" class="numbers buttons">.</div>
                 <div id="equals-to"  class="buttons">=</div>
             </div>
         </div>
     </div>
 </body>
+<script src="./javascript/main.js"></script>
 </html>
