@@ -67,15 +67,15 @@ body {
 }
 
 .buttons {
-  margin: 15px;
-  width: 55px;
-  height: 55px;
+  margin: 8px;
+  width: 40px;
+  height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
   font-family: "Press Start 2P", cursive;
   text-decoration: none;
   color: white;
@@ -131,6 +131,7 @@ body {
 
 .delete {
   background-color: #6f6f6f;
+  box-shadow: inset -6px -6px 0px 0px #666565;
 }
 
 #equals-to {
