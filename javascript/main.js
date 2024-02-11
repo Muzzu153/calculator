@@ -6,8 +6,16 @@ const calObj = {
   displayNum: "",
 };
 
+// to display the operation
 let display = document.querySelector(".display-input");
 
+// clear all operation 
+let allClearButton = document.getElementById("all-clear");
+
+// delete last input 
+let del = document.getElementById("clear");
+
+// number buttons
 let one = document.getElementById("1");
 let two = document.getElementById("2");
 let three = document.getElementById("3");
@@ -21,12 +29,14 @@ let zero = document.getElementById("0");
 let doubleZero = document.getElementById("00");
 let point = document.getElementById("point");
 
+// operator buttons
 let sumOperator = document.getElementById("plus");
 let subtractOperator = document.getElementById("minus");
 let divisionOperator = document.getElementById("divide");
 let multiplicationOperator = document.getElementById("multiply");
 let percentageOperator = document.getElementById("percentage");
 
+// make the numbers display on the calculator screen
 one.addEventListener("click", function () {
   calObj.displayNum = calObj.displayNum.concat("1");
   display.textContent = calObj.displayNum;
@@ -78,101 +88,129 @@ doubleZero.addEventListener("click", function () {
   }
   display.textContent = calObj.displayNum;
 });
-
 point.addEventListener("click", () => {
   calObj.displayNum = calObj.displayNum.concat(".");
   display.textContent = calObj.displayNum;
 });
 
+// Make the opeators display on the screen and to concatenate in the calObj object
 sumOperator.addEventListener("click", () => {
-  calObj.operator = calObj.operator.substring(0, "").concat("+");
-  if (
-    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "-" ||
-    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "*" ||
-    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "÷" ||
-    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "%"
-  ) {
-    calObj.displayNum = calObj.displayNum
-      .substring(0, calObj.displayNum.length - 1)
-      .concat("+");
-    display.textContent = calObj.displayNum;
-  } else {
-    calObj.displayNum = calObj.displayNum.concat("+");
+  if(calObj.operator !== ""){
+    performOperation();
+  }
+   else if (
+     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "+" ||
+     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "-" ||
+     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "*" ||
+     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "÷" ||
+     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "%"
+     ) {
+       calObj.displayNum = calObj.displayNum
+       .substring(0, calObj.displayNum.length - 1)
+       .concat("+");
+       display.textContent = calObj.displayNum;
+       console.log('+ concatenated')
+      } else {
+        calObj.operator = calObj.operator.substring(0, "").concat("+");
+        calObj.displayNum = calObj.displayNum.concat("+");
     display.textContent = calObj.displayNum;
   }
 });
 
+
 subtractOperator.addEventListener("click", () => {
-  calObj.operator = calObj.operator.substring(0, "").concat("-");
-  if (
+  if(calObj.operator !== ""){
+    performOperation();
+  }
+  else if (
+    (calObj.displayNum.charAt(calObj.displayNum.length - 1) === "-" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "+" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "*" ||
-    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "÷" ||
-    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "%"
+      calObj.displayNum.charAt(calObj.displayNum.length - 1) === "÷" ||
+      calObj.displayNum.charAt(calObj.displayNum.length - 1) === "%") 
+    // calObj.num1 !== ""
   ) {
     calObj.displayNum = calObj.displayNum
-      .substring(0, calObj.displayNum.length - 1)
-      .concat("-");
+    .substring(0, calObj.displayNum.length - 1)
+    .concat("-");
     display.textContent = calObj.displayNum;
-  } else {
+  } else if(calObj.num1 !== "") {
+    calObj.operator = calObj.operator.substring(0, "").concat("-");
     calObj.displayNum = calObj.displayNum.concat("-");
     display.textContent = calObj.displayNum;
   }
 });
 
+
 divisionOperator.addEventListener("click", () => {
-  calObj.operator = calObj.operator.substring(0, "").concat("÷");
-  if (
+  if(calObj.operator !== ""){
+    performOperation();
+  }
+  else if (
+    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "÷" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "-" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "*" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "+" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "%"
-  ) {
-    calObj.displayNum = calObj.displayNum
+    ) {
+      calObj.displayNum = calObj.displayNum
       .substring(0, calObj.displayNum.length - 1)
       .concat("÷");
-    display.textContent = calObj.displayNum;
+      display.textContent = calObj.displayNum;
   } else {
+    calObj.operator = calObj.operator.substring(0, "").concat("÷");
     calObj.displayNum = calObj.displayNum.concat("÷");
     display.textContent = calObj.displayNum;
   }
 });
 
+
 multiplicationOperator.addEventListener("click", () => {
-  calObj.operator = calObj.operator.substring(0, "").concat("*");
-  if (
+  if(calObj.operator !== ""){
+    performOperation();
+  }
+  else if (
+    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "*" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "-" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "*" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "÷" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "%"
-  ) {
-    calObj.displayNum = calObj.displayNum
+    ) {
+      calObj.displayNum = calObj.displayNum
       .substring(0, calObj.displayNum.length - 1)
       .concat("*");
-    display.textContent = calObj.displayNum;
-  } else {
-    calObj.displayNum = calObj.displayNum.concat("*");
+      display.textContent = calObj.displayNum;
+    } else {
+      calObj.operator = calObj.operator.substring(0, "").concat("*");
+      calObj.displayNum = calObj.displayNum.concat("*");
     display.textContent = calObj.displayNum;
   }
 });
 
+
 percentageOperator.addEventListener("click", () => {
-  calObj.operator = calObj.operator.substring(0, "").concat("%");
-  if (
+  if(calObj.operator !== ""){
+    performOperation();
+  }
+  else if (
+    calObj.displayNum.charAt(calObj.displayNum.length - 1) === "%" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "-" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "*" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "÷" ||
     calObj.displayNum.charAt(calObj.displayNum.length - 1) === "+"
-  ) {
-    calObj.displayNum = calObj.displayNum
+    ) {
+      calObj.displayNum = calObj.displayNum
       .substring(0, calObj.displayNum.length - 1)
       .concat("%");
-    display.textContent = calObj.displayNum;
-  } else {
+      display.textContent = calObj.displayNum;
+    } else {
+    calObj.operator = calObj.operator.substring(0, "").concat("%");
     calObj.displayNum = calObj.displayNum.concat("%");
     display.textContent = calObj.displayNum;
   }
 });
+
+
 
 function getSum(n1, n2) {
   calObj.num2 = "";
@@ -199,8 +237,11 @@ function getPercentage(n1, n2) {
   return (Number(n1) * Number(n2)) / 100;
 }
 
+
+
 let equalsTo = document.getElementById("equals-to");
-equalsTo.addEventListener("click", () => {
+equalsTo.addEventListener("click", performOperation)
+function performOperation() {
   if (
     calObj.operator === ("+" || "-" || "*" || "÷" || "%") &&
     calObj.num2 === ""
@@ -239,7 +280,9 @@ equalsTo.addEventListener("click", () => {
     display.textContent = calObj.displayNum;
     return (calObj.num1 = calObj.final.toString());
   }
-});
+};
+
+
 
 document.addEventListener("click", numSelectionListner);
 
@@ -339,6 +382,7 @@ function numSelectionListner(event) {
   }
 }
 
+
 function clearAll() {
   calObj.num1 = "";
   calObj.num2 = "";
@@ -347,9 +391,9 @@ function clearAll() {
   calObj.final = 0;
   display.textContent = calObj.displayNum;
 }
-
-let allClearButton = document.getElementById("all-clear");
 allClearButton.addEventListener("click", clearAll);
+
+
 
 function deleteLastInput() {
   if (calObj.num1 !== "" && calObj.operator === "" && calObj.num2 === "") {
@@ -374,5 +418,5 @@ function deleteLastInput() {
     display.textContent = calObj.displayNum;
   }
 }
-let del = document.getElementById("clear");
+
 del.addEventListener("click", deleteLastInput);
