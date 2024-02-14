@@ -51,6 +51,10 @@ body {
   box-shadow: inset -2px -2px 3px 3px white;
 }
 
+button{
+  border: none;
+}
+
 .buttons-container {
   border: 1px solid black;
   width: 100%;
