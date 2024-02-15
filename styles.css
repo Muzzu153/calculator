@@ -9,11 +9,6 @@ body {
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: digital;
-  src: url(./fonts/display-font/digital-7.ttf);
-}
-
 body {
   width: 100vw;
   height: 100vh;
@@ -27,7 +22,6 @@ body {
 }
 
 #wrapper {
-  font-size: 3rem;
   width: 22rem;
   height: 33rem;
   display: flex;
@@ -38,6 +32,7 @@ body {
 }
 
 #display {
+  font-size: 5rem;
   height: 35%;
   width: 100%;
   display: flex;
@@ -46,7 +41,6 @@ body {
 }
 
 .display-input {
-  font-family: digital;
   background-color: #bccd95;
   border: 2px solid black;
   width: 95%;
@@ -67,20 +61,22 @@ button{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
 }
 
 .buttons-row {
-  height: 20%;
+  height: 17%;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   position: relative;
+  gap: 1rem;
   flex: 1;
 }
 
 .buttons {
-  margin: 8px;
   /* width: 40px; */
   height: 32px;
   display: flex;
@@ -92,7 +88,7 @@ button{
   font-family: "Press Start 2P", cursive;
   text-decoration: none;
   color: white;
-  flex: 1;
+  /* flex: 1; */
 }
 .buttons:hover,
 .buttons:focus {
