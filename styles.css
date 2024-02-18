@@ -1,9 +1,8 @@
- html{
-  font-size: 62.5%; 
- }
+:root {
+  font-size: 62.5%;
+}
 
-*,
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -50,7 +49,7 @@ body {
   box-shadow: inset -2px -2px 3px 3px white;
 }
 
-button{
+button {
   border: none;
 }
 
@@ -77,29 +76,30 @@ button{
 }
 
 .buttons {
-  /* width: 40px; */
-  height: 32px;
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   text-align: center;
-  font-size: 15px;
-  font-family: "Press Start 2P", cursive;
+  font-size: 1.5rem;
   text-decoration: none;
   color: white;
-  /* flex: 1; */
 }
+
 .buttons:hover,
 .buttons:focus {
   cursor: pointer;
   background: #76c442;
   box-shadow: inset -6px -6px 0px 0px #4aa52e;
 }
+
 .buttons:active {
   box-shadow: inset 4px 4px 0px 0px #4aa52e;
   transform: scale(0.92);
 }
+
 .buttons:before,
 .buttons:after {
   content: "";
@@ -160,30 +160,30 @@ button{
 }
 
 @media (min-width: 768px) {
-  body{
+  body {
     font-size: 45px;
   }
-  #wrapper{
-    width: 350px;
-    height: 500px;
+  #wrapper {
+    width: 35rem;
+    height: 50rem;
   }
-  .buttons{
-    width: 68px;
-    height: 68px;
-    font-size: 18px;
+  .buttons {
+    width: 6.8rem;
+    height: 6.8rem;
+    font-size: 1.8rem;
   }
 }
 
 @media (min-width: 1440px) {
-  body{
+  body {
     font-size: 48px;
   }
-  #wrapper{
-    width: 380px;
-    height: 520px;
+  #wrapper {
+    width: 380rem;
+    height: 52rem;
   }
-  .buttons{
-    width: 70px;
-    height: 70px;
+  .buttons {
+    width: 7rem;
+    height: 7rem;
   }
 }
